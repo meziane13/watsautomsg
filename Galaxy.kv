@@ -1,0 +1,41 @@
+
+MainWidget:
+<MenuWidget>:
+    canvas.before:
+        Color:
+            rgba:0,0,0,0.8
+        Rectangle:
+            size:self.size
+
+    Label:
+        font_name:'Sackers-Gothic-Std-Light.ttf'
+        font_size:dp(60)
+        text:root.parent.menu_text
+        pos_hint:{"center_x":0.5,"center_y":0.6}
+    Button:
+        font_name:'Eurostile.ttf'
+        font_size:dp(30)
+        text:root.parent.menu_button_text
+        pos_hint:{"center_x":0.5,"center_y":0.3}
+        size_hint:0.2,0.15
+        on_press:root.parent.on_clicked()
+        background_normal:''
+        background_color:1,0.3,0.4,0.85
+
+<MainWidget>:
+    canvas.before:
+        Rectangle:
+            size:self.size
+            source:'bg1.jpg'
+    menu_widget:menu_widget
+    perspective_point_x: self.width/2
+    perspective_point_y: self.height*0.75
+
+    MenuWidget:
+        id:menu_widget
+    Label:
+        text:root.score_txt
+        font_name:'Eurostile.ttf'
+        font_size:dp(20)
+        pos_hint:{"x":0,"top":1}
+        size_hint:0.18,0.18
